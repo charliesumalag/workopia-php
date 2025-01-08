@@ -1,11 +1,8 @@
 <?php
-<<<<<<< HEAD
 require __DIR__ . '/../vendor/autoload.php';
 require '../helpers.php';
 
 use Framework\Router;
-
-
 
 
 
@@ -19,7 +16,3 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 
 $router->route($uri, $method); //running the route method inside the Router Class
-=======
-require '../helpers.php';
-loadView('home');
->>>>>>> 48863831af1e001615470ae6c5723e2194c3f35b
