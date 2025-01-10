@@ -21,7 +21,7 @@ class HomeController
    */
     public function index()
     {
-        $listings = $this->db->query('SELECT * FROM listings LIMIT 6')->fetchAll();
+        $listings = $this->db->query('SELECT * FROM listings LIMIT 4')->fetchAll();
 
         loadView('home', [
             'listings' => $listings
