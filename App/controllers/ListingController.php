@@ -10,7 +10,6 @@ class ListingController
     protected $db;
     public function __construct()
     {
-
         $config = require basePath('config/db.php');
         $this->db = new Database($config);
     }
@@ -59,5 +58,23 @@ class ListingController
         loadView('listings/show', [
             'listing' => $listing
         ]);
+    }
+
+    /**
+     * Store data in database
+     *
+     * @return void
+     */
+    public function store()
+    {
+        $allowedFields = ['title', 'description', 'salary', 'tags', 'company', 'address', 'city', 'state', 'phone', 'email', 'requirements', 'benefits'];
+
+        $newListingData = array_intersect_key($_POST, array_flip($allowedFields));
+        $newListingData['user_id'] = 1;
+
+        $newListingData = array_map('sanitize', $newListingData);
+
+
+        inspectAndDie($newListingData);
     }
 }
