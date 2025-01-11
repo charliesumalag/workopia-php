@@ -1,4 +1,5 @@
 <?php
+session_start();
 require __DIR__ . '/../vendor/autoload.php';
 require '../helpers.php';
 
@@ -11,7 +12,6 @@ $router = new Router();
 require basePath('routes.php'); //registering routes
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-// $uri = $_SERVER['REQUEST_URI'];
 
 
 
